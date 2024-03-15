@@ -4,10 +4,23 @@
 # Basic Function
 # Define a basic function that only prints Hello. Create the definition using def and the call that executes it.
 
+def hello_print():
+    print('Hello!')
+
+hello_print()
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Basic Function with Parameters
 # Define a basic function that prints a greeting taking a given name.
+
+def greetings(name):
+    print(f'Good morning, {name}!')
+
+name = input('Write your name: ')
+greetings(name)
+
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -21,6 +34,15 @@
 # Prints: Hello, Tom!
 # greeting('Tom')
 
+def greetings(name='stranger'):
+    print(f'Hello,{name}!')
+
+
+greetings('Tom')
+greetings()
+
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Multiple Parameters
@@ -31,6 +53,13 @@
 
 # Prints (default values might be useful): The sum of 1 + 0 = 1
 # add(1)
+
+def greetings(name='stranger'):
+    print(f'Hello,{name}!')
+
+
+greetings('Tom')
+greetings()
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -45,6 +74,11 @@
 # Is there anything you can add to the line below, so the function also prints "Nelson Mandela"?
 # full_name("Mandela", "Nelson")
 
+def full_name(first_name,last_name):
+    print(first_name, last_name)
+
+full_name(first_name='Nelson', last_name='Mandela')
+full_name(last_name='Mandela', first_name='Nelson')
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Returning Values
@@ -54,6 +88,19 @@
 
 # Tip: Validator functions return True / False which we can use in conditionals to do things like print a message.
 
+def is_over8_length(word):
+    if len(word)>8:
+        return True
+    else:
+        return False
+
+words = ['cat', 'elephant', 'dinosaur', 'alligator', 'chameleon']
+for word in words:
+    result = is_over8_length(word)
+    if result :
+        print('The word is longer than 8 characters.')
+    else:
+        print('The word is NOT longer than 8 characters.')
 # ----------------------------------------------------------------------------------------------------------------------
 
 # You're going to revisit some of the algorithms you've already solved. But this time, there's a twist! Your challenge
@@ -75,6 +122,18 @@
 
 # Call the function here
 
+def fizzbuzz(number):
+    if number % 3 == 0 and number % 5 == 0:
+        print('FizzBuzz')
+    elif number % 3 == 0:
+        print('Fizz')
+    elif number % 5 == 0:
+        print('Buzz')
+    else:
+        print(number)
+
+number = int(input('Write a number: '))
+fizzbuzz(number)
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Anagram
@@ -92,8 +151,25 @@
 # - Sort both strings. If the sorted versions are equal, they're anagrams!
 
 # Test your function with these strings
+# test_str1 = 'abcde'
+# test_str2 = 'edcba'
+
+def is_anagram(test_str1, test_str2):
+    if len(test_str1) != len(test_str2):
+        return False
+    else:
+        if sorted(test_str1) == sorted(test_str2):
+            return True
+        else:
+            return False
+
 test_str1 = 'abcde'
 test_str2 = 'edcba'
+result = is_anagram(test_str1, test_str2)
+if result:
+    print('The words are anagrams.')
+else:
+    print('The words are NOT anagrams.')
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -114,6 +190,17 @@ test_str2 = 'edcba'
 
 # Output should be the maximum number in the list.
 
+def find_max(numbers):
+    result = numbers[0]
+    for number in numbers:
+        if number > result:
+            result = number
+    return result
+
+
+numbers = [3, 0, -1, 1234, 10000000, 8.88]
+max_number = find_max(numbers)
+print(f'The biggest number is: {max_number}')
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Even/Odd Checker Function
@@ -128,3 +215,14 @@ test_str2 = 'edcba'
 # Define a function is_even_odd(number) here
 
 # Test the function calling it using a variety of numbers like: 1, 10, 5.5, 9
+
+def is_even_odd(number):
+    if number % 2 == 0:
+        print('Even')
+    else:
+        print('Odd')
+
+is_even_odd(1)
+is_even_odd(10)
+is_even_odd(5.5)
+is_even_odd(9)
