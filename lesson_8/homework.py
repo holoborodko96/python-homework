@@ -15,7 +15,12 @@
 
 arr = [5, 2, 9, 1, 5, 6]
 # Your code here
+arr = sorted(arr)
+min_arr=[]
+for i in arr[0:2]:
+    min_arr.append(i)
 
+print(min_arr)
 # ---------------------------------------------------------------------
 
 # Challenge 2
@@ -33,6 +38,12 @@ arr = [5, 2, 9, 1, 5, 6]
 file_name = "My Summer Photos 2023"
 # Your code here
 
+result = ''
+for character in file_name:
+    if character != ' ':
+        result += character
+
+print(result)
 # ---------------------------------------------------------------------
 
 # Challenge 3
@@ -55,6 +66,11 @@ n = 5
 
 # Print the sum of integers from 1 to 'number'
 
+result = 0
+for i in range(0, n+1):
+    result += i
+
+print(f'The sum of integers from 1 to {n} is {result}')
 
 # ---------------------------------------------------------------------
 
@@ -75,6 +91,17 @@ n = 5
 # Use a for loop to iterate over every letter and conditional statements to check the condition
 # Use the count() method (think how it can help you solve this problem!)
 
+word = 'desktop'
+for character in word:
+    if word.count(character) < 2:
+        result = True
+    else:
+        print('False')
+        result = False
+        break
+if result == True:
+    print(True)
+
 
 # ---------------------------------------------------------------------
 
@@ -94,8 +121,6 @@ n = 5
 # Since our digit is a string, we need to convert it to a number using int() so we can repeat it correctly.
 # Once the digit is a number, just multiply the character by this value to get the repeated string.
 
-string = "312"
-
 # Initialize an empty string called 'result' to store the result
 
 # Loop through each character in the string
@@ -107,3 +132,10 @@ string = "312"
 # and add the repeated character to 'result'
 
 # Print the final result
+
+s = '312'
+result = ''
+for character in s:
+    current_num = int(character)
+    result +=character*current_num
+print(result)
