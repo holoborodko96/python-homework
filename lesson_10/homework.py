@@ -19,6 +19,16 @@
 def multiplication_of_three(number):
 # Your code here
 
+    digit_1 = number % 10
+    number //= 10
+    digit_2 = number % 10
+    digit_3 = number // 10
+    result = digit_1 * digit_2 * digit_3
+    print(result)
+
+
+multiplication_of_three(349)
+
 
 # ---------------------------------------------------------------------
 
@@ -58,6 +68,13 @@ def sum_even_and_product_odd(arr):
 def invert_list(arr):
 # Your code here
 
+    for i in range(0, len(arr)):
+        arr[i] *= -1
+    print(arr)
+
+
+arr = [1, 5, -2, 4]
+invert_list(arr)
 
 # ---------------------------------------------------------------------
 
@@ -79,11 +96,18 @@ def max_diff(arr):
         return 0
 
 
+
 # If the list is not empty,
 # proceed with the rest of the code.
 
 # Your code here
+    else:
+        result = max(arr) - min(arr)
+        return result
 
+arr = [3, 5, 7, 2]
+res = max_diff(arr)
+print(res)
 
 # ---------------------------------------------------------------------
 
@@ -105,3 +129,17 @@ def max_diff(arr):
 def sum_between_range(arr, min_val, max_val):
 # Your code here
 
+
+    process_str = []
+    for i in range(0, len(arr)):
+        if min_val <= arr[i] <= max_val:
+            process_str.append(arr[i])
+    result = sum(process_str)
+    print(result)
+
+
+arr = [3, 2, 1, 4, 10, 8, 7, 6, 9, 5]
+min_val = 3
+max_val = 7
+
+sum_between_range(arr, min_val, max_val)
