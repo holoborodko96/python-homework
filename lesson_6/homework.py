@@ -22,16 +22,25 @@
 # list_1.a???('Friend1')
 # list_1.???('Friend2')
 # list_1.???('Friend3')
+list_1 = []
+list_1.append("Yulia")
+list_1.append("Nastia")
+list_1.append("Max")
 
 # List 2:
 # list_2 = [???, ???, ???]
-
+list_2 = ["Yulia", "Nastia", "Max"]
 # List 3:
 # list_3 = [
 #     ???,
 #     ???,
 #     ???,
 # ]
+list_3 = [
+    ["Yulia", 27],
+    ["Nastia", 27],
+    ["Max", 26]
+]
 
 # ---------------------------------------------------------------------
 # Task 2. Retrieve elements from a List
@@ -42,24 +51,27 @@
 
 # Name of second friend
 # second_friend_name = list_2[???]
-
+second_friend_name = list_2[1]
+print(second_friend_name)
 # Age of the last friend of the list
 # last_friend_age = list_3[???][???]
+last_friend_age = list_3[-1][-1]
+print(last_friend_age)
 
 # ---------------------------------------------------------------------
 # Task 3. Remove elements from a List
 
 # From the lists provided, remove the requested elements. Easy peazy.
 
-# cities = ["Houston", "Dallas", "Austin"]
-# fruits = ["apple", "banana", "orange"]
+cities = ["Houston", "Dallas", "Austin"]
+fruits = ["apple", "banana", "orange"]
 
 # Remove Austin from cities without using its index
 # cities.remove(???)
-
+cities.remove("Austin")
 # Remove the last element from fruits using negative indexes
 # ??? fruits[???]
-
+del fruits[-1]
 # ---------------------------------------------------------------------
 # Task 4. Verify if an element exists in a list
 
@@ -71,37 +83,41 @@
 # Write code that prints YES if the list contains "cheese".
 
 # if ??? in ???:
-    # print('YES')
-       
+# print('YES')
+pantry = ["ham", "bread", "cheese"]
+
+if "cheese" in pantry:
+    print('YES')
+
 # ---------------------------------------------------------------------
 # Task 5. Sorting and Reversing
 
 # Given the provided list, write code that sorts and reverses it, as required.
 
-# numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
+numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
 
 # Write code that sorts the list in ascending order without disturbing the original.
 # sorted_numbers = ???(numbers)
-
+sorted_numbers = sorted(numbers)
 # Write code that reverses (flips) the list without disturbing the original.
 # Remember that in this case, casting is required.
 # reversed_numbers = ???(???(numbers))
-
+reversed_numbers = sorted(numbers, reverse=True)
 # Write code that sorts the list in place, modifying the original.
 # numbers.s???()
-
+numbers.sort()
 # Write code that reverses (flips) the list in place, modifying the original.
 # numbers.r???()
-
+numbers.reverse()
 # ---------------------------------------------------------------------
 # Task 6. Stitching and Slicing
 
 # You are given two lists with names of days of the week:
 
-# - `work_days` contains the work week days (Mon-Fri) 
+# - `work_days` contains the work week days (Mon-Fri)
 # - `rest_days` contains the weekend days (Sat-Sun)
 
-# Create a third list that contains the _concatenation_ of the previous two. 
+# Create a third list that contains the _concatenation_ of the previous two.
 # Call it 'full_week'
 
 # Now, write python code that prints a slice from 'full_week' with the work days.
@@ -111,10 +127,12 @@
 
 # Concatenate work_days and rest_rays
 # full_week = ???
-
+work_days = ["mon", "tue", "wed", "thu", "fri"]
+rest_days = ["sat", "sun"]
+full_week = work_days + rest_days
 # Slice with the work days
 # print(full_week[???])
-
+print(full_week[0:5])
 # ---------------------------------------------------------------------
 # Task 7. Aggregators and Helpers
 
@@ -130,19 +148,20 @@
 
 # Lowest number
 # print(???(numbers))
-
+numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
+print(min(numbers))
 # Highest number
 # print(???(numbers))
-
+print(max(numbers))
 # Sum of everything
 # print(???(numbers))
-
+print(sum(numbers))
 # Count number 9s
 # print(numbers.???(???))
-
+print(numbers.count(9))
 # Total number of elements
 # print(???(numbers))
-
+print(len(numbers))
 ## Exercises 🏋🏻
 
 # ---------------------------------------------------------------------
@@ -154,14 +173,14 @@
 # - Your Age
 # - The name of the city where you were born
 
-# The program should use a variable with a string that will be used as a template. 
+# The program should use a variable with a string that will be used as a template.
 # This template should be a sentence that can be used to build the person's biography.
 
 # Fox example:
 
 # biography = "My name is <NAME>, I'm <AGE> years old and I was born in <CITY>."
-        
-# Tips: 
+
+# Tips:
 # - Use f-strings with placeholders to build the actual template, with elements of the list as values.
 # - Use input() to gather the data.
 # - Use print() at the end, to show the user's biography.
@@ -184,60 +203,70 @@
 
 # Show the user's biography
 # print(biography)
-
+user_data = []
+name = input("Name: ")
+age = input("Age: ")
+city = input("City: ")
+user_data.append(name)
+user_data.append(age)
+user_data.append(city)
+biography = f"My name is {user_data[0]}, I'm {user_data[1]} years old and I was born in {user_data[2]}."
+print(biography)
 # ---------------------------------------------------------------------
 # Exercise 2. The Card Deck ♦️♥️♠️♣️
 
-# You will be provided with a couple lists that contain the cards for a card deck. 
-# One of the lists contains the numbers, and the other one contains the faces. 
+# You will be provided with a couple lists that contain the cards for a card deck.
+# One of the lists contains the numbers, and the other one contains the faces.
 
 # You will be asked to fill in the blanks to print out certain cards for a card game you've been working on.
 
 # 🔥 Tip: You might want to stitch them together first.
 
 # Here are the card decks.
-# numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-# faces = ['J', 'Q', 'K']
+numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+faces = ['J', 'Q', 'K']
 
 # Concatenate them first.
 # card_deck = ???
+card_deck = numbers + faces
 
 # Print out the numbers 1 to 6.
 # print(card_deck[???])
-
+print(card_deck[0:6])
 # Print out the last 3. Do it using POSITIVE indexes.
 # print(card_deck[???])
-
+print(card_deck[10:])
 # Print out the last 3 (same as before), but using NEGATIVE indexes.
 # print(card_deck[???])
-
+print(card_deck[-3:])
 # Print out everything EXCEPT the first and last.
 # print(card_deck[???])
-
+print(card_deck[1:-1])
 # What would you use so the printout includes the following:
 # Hint: It's every third card of the full deck.
 # ['1', '4', '7', '10', 'K']
 # print(card_deck[???])
+print(card_deck[::3])
 
 # Print out the EVEN numbers. No faces.
 # print(???)
-
+print(card_deck[1:10:2])
 # ---------------------------------------------------------------------
 # Exercise 3. The Steps Tracker 👟
 
-# Walking is a great way to improve one's health, and it can be fun! 
+# Walking is a great way to improve one's health, and it can be fun!
 # Doctors recommend 10,000 steps per day! You would like to know how many steps are YOU taking per day and per week.
 
-# Write a program that will ask you the number of steps taken each day of the week, for one week. 
-# The program should put the step counts in a list, where index 0 is the number for Monday, 
+# Write a program that will ask you the number of steps taken each day of the week, for one week.
+# The program should put the step counts in a list, where index 0 is the number for Monday,
 # index 1 is the number for Tuesday, and so on.
- 
+
 # Once you have all the steps counts, answer the following questions:
 # - How many steps you took on Wednesday?
 # - How many steps you took on the work days (Mon - Fri)?
 # - How many steps total did you take over the whole week?
 # - What was the least number of steps you took on a day?
-# - What was the most number of steps you took on a day? 
+# - What was the most number of steps you took on a day?
 
 # monday = input('Steps for Monday: ')
 # tuesday = input('Steps for Tuesday: ')
@@ -246,29 +275,36 @@
 # friday = input('Steps for Friday: ')
 # saturday = input('Steps for Saturday: ')
 # sunday = input('Steps for Sunday: ')
-
+monday = int(input('Steps for Monday: '))
+tuesday = int(input('Steps for Tuesday: '))
+wednesday = int(input('Steps for Wednesday: '))
+thursday = int(input('Steps for Thursday: '))
+friday = int(input('Steps for Friday: '))
+saturday = int(input('Steps for Saturday: '))
+sunday = int(input('Steps for Sunday: '))
 # steps = [???]
-
+steps = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
 # Steps on Wednesday
 # print(steps[???])
-
+print(steps[2])
 # Steps on the work days
 # work_days_steps = steps[???]
 # print(???(work_days_steps))
-
+workday_steps = steps[:5]
+print(sum(workday_steps))
 # Steps over the whole week
 # print(???(steps))
-
+print(sum(steps))
 # Least number of steps
 # print(???(steps))
-
+print(min(steps))
 # Highest number of steps
 # print(???(steps))
-
+print(max(steps))
 # ---------------------------------------------------------------------
 # Exercise 4. Bonus Round: The Speech Reverser and Counter 🎤
 
-# Python has a handy little method that allows you to split a string. 
+# Python has a handy little method that allows you to split a string.
 # In its most basic form it splits a string into a list using the spaces as separators:
 
 # Example:
@@ -284,7 +320,7 @@
 # - Takes a string input from the user.
 # - Splits it into words.
 # - Prints out the string with the words in reverse order.
-# - Prints out the word count. 
+# - Prints out the word count.
 
 # Get input from the user
 # user_input = ???('Give me a phrase')
@@ -298,3 +334,8 @@
 
 # Print the length of the words list
 # print(???(words))
+user_input = input('Give me a phrase: ')
+words = user_input.split()
+reversed_words = (list(reversed(words)))
+print(reversed_words)
+print(len(words))
